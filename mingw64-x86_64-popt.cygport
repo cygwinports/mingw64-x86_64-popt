@@ -1,0 +1,21 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-popt"
+VERSION=1.10.7
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Command-line option parser library for Win64 toolchain"
+DESCRIPTION="The popt library exists essentially for parsing command line options.
+Some specific advantages of popt are no global variables (allowing multiple
+passes in parsing argv), parsing an arbitrary array of argv-style elements
+(allowing parsing of command-line-strings from any source), a standard method
+of option aliasing, ability to exec external option filters, and automatic
+generation of help and usage messages."
+HOMEPAGE="http://rpm5.org/"
+SRC_URI="http://rpm5.org/files/popt/popt-${VERSION}.tar.gz"
+SRC_DIR="popt-${VERSION}"
+PATCH_URI="01-vpath.patch"
+
+# we do not use $prefix/lib64 on mingw64
+MAKEOPTS+=" man_MANS= usrlibdir=${CROSS_LIBDIR}"

@@ -1,0 +1,11 @@
+--- origsrc/popt-1.10.7/po/Makefile.in.in	2003-12-22 15:09:40.000000000 -0600
++++ src/popt-1.10.7/po/Makefile.in.in	2012-09-16 00:30:57.902974800 -0500
+@@ -29,7 +29,7 @@ gettextsrcdir = $(datadir)/gettext/po
+ INSTALL = @INSTALL@
+ INSTALL_DATA = @INSTALL_DATA@
+ MKINSTALLDIRS = @MKINSTALLDIRS@
+-mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in /*) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_builddir)/mkinstalldirs" ;; esac`
++mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in /*) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_srcdir)/mkinstalldirs" ;; esac`
+ 
+ CC = @CC@
+ GMSGFMT = @GMSGFMT@
